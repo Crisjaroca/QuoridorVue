@@ -2,11 +2,11 @@
 export default {
   data() {
     return {
-      tablero: this.crearTablero()
+      board: this.createBoard()
     }
   },
   methods: {
-    crearTablero() {
+    createBoard() {
       return Array(9).fill().map(() => Array(9).fill(null));
     }
   }
@@ -14,41 +14,45 @@ export default {
 </script>
 
 <template>
-  <h1>Quoridor</h1>
-  <section id="tablero">
-    <section v-for="(fila, i) in tablero" :key="i" class="fila">
-      <section v-for="(casilla, j) in fila" :key="j" class="casilla">
+  <section class="quoridor">
+    <h1 class="quoridor__title">Quoridor</h1>
+    <section class="quoridor__board">
+      <section v-for="(row, i) in board" :key="i" class="quoridor__row">
+        <section v-for="(cell, j) in row" :key="j" class="quoridor__cell">
+        </section>
       </section>
     </section>
+    <footer class="quoridor__footer">
+      <p>Realizado por<br>
+      Cristian Javier Rodríguez Cárdenas <br>
+      Frans Sebastian Villamizar Maldonado</p>
+    </footer>
   </section>
-  <footer>
-    <p>Realizado por<br>
-    Cristian Javier Rodríguez Cárdenas <br>
-    Frans Sebastian Villamizar Maldonado</p>
-  </footer>
 </template>
 
 <style scoped>
-  h1 {
+  .quoridor {
     text-align: center;
   }
-  #tablero {
+  .quoridor__title {
+    margin-bottom: 20px;
+  }
+  .quoridor__board {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
   }
-  .fila {
+  .quoridor__row {
     display: flex;
   }
-  .casilla {
+  .quoridor__cell {
     width: 50px;
     height: 50px;
     border: 1px solid black;
     position: relative;
   }
-  footer {
-    text-align: center;
+  .quoridor__footer {
     margin-top: 20px;
   }
 </style>
