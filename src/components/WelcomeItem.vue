@@ -1,10 +1,10 @@
 <template>
-  <div class="item">
-    <i>
+  <div class="welcome-item">
+    <i class="welcome-item__icon">
       <slot name="icon"></slot>
     </i>
-    <div class="details">
-      <h3>
+    <div class="welcome-item__details">
+      <h3 class="welcome-item__heading">
         <slot name="heading"></slot>
       </h3>
       <slot></slot>
@@ -13,28 +13,27 @@
 </template>
 
 <style scoped>
-.item {
+.welcome-item {
   margin-top: 2rem;
   display: flex;
   position: relative;
 }
 
-.details {
+.welcome-item__details {
   flex: 1;
   margin-left: 1rem;
 }
 
-i {
+.welcome-item__icon {
   display: flex;
   place-items: center;
   place-content: center;
   width: 32px;
   height: 32px;
-
   color: var(--color-text);
 }
 
-h3 {
+.welcome-item__heading {
   font-size: 1.2rem;
   font-weight: 500;
   margin-bottom: 0.4rem;
@@ -42,12 +41,12 @@ h3 {
 }
 
 @media (min-width: 1024px) {
-  .item {
+  .welcome-item {
     margin-top: 0;
     padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
   }
 
-  i {
+  .welcome-item__icon {
     top: calc(50% - 25px);
     left: -26px;
     position: absolute;
@@ -58,7 +57,7 @@ h3 {
     height: 50px;
   }
 
-  .item:before {
+  .welcome-item:before {
     content: ' ';
     border-left: 1px solid var(--color-border);
     position: absolute;
@@ -67,7 +66,7 @@ h3 {
     height: calc(50% - 25px);
   }
 
-  .item:after {
+  .welcome-item:after {
     content: ' ';
     border-left: 1px solid var(--color-border);
     position: absolute;
@@ -76,11 +75,11 @@ h3 {
     height: calc(50% - 25px);
   }
 
-  .item:first-of-type:before {
+  .welcome-item:first-of-type:before {
     display: none;
   }
 
-  .item:last-of-type:after {
+  .welcome-item:last-of-type:after {
     display: none;
   }
 }
