@@ -5,24 +5,18 @@
       Turno actual: {{ currentPlayer === 1 ? 'Jugador 1 (Rojo)' : 'Jugador 2 (Azul)' }}
     </p>
     <p v-if="winner" class="quoridor__winner">¡{{ winner }} ha ganado!</p>
-    <board
-      :board="board"
-      :player1="player1"
-      :player2="player2"
-      :obstacles="obstacles"
-      @cell-click="handleCellClick"
-    />
+    <board :board="board" :player1="player1" :player2="player2" :obstacles="obstacles" @cell-click="handleCellClick" />
     <button @click="restart" class="quoridor__button">Reiniciar Juego</button>
     <footer class="quoridor__footer">
       <p>Realizado por<br>
-      Cristian Javier Rodríguez Cárdenas<br>
-      Frans Sebastian Villamizar Maldonado</p>
+        Cristian Javier Rodríguez Cárdenas<br>
+        Frans Sebastian Villamizar Maldonado</p>
     </footer>
   </section>
 </template>
 
 <script>
-import Board from './components/organisms/Board.vue';
+import Board from './components/organismos/Tablero.vue';
 
 export default {
   components: {
